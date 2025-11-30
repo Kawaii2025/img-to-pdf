@@ -55,7 +55,21 @@
           &#10094;
         </button>
 
-        <img class="modal-image" id="modal-image" src="" alt="大图预览" />
+        <!-- 缩放控制条 -->
+        <div class="zoom-controls">
+          <button class="zoom-btn" id="zoom-out" title="缩小 (-)">−</button>
+          <span class="zoom-level" id="zoom-level">100%</span>
+          <button class="zoom-btn" id="zoom-in" title="放大 (+)">+</button>
+          <button class="zoom-btn" id="zoom-reset" title="重置 (0)">⟲</button>
+        </div>
+
+        <img
+          class="modal-image"
+          id="modal-image"
+          src=""
+          alt="大图预览"
+          style="cursor: grab"
+        />
 
         <!-- 右箭头按钮 -->
         <button
@@ -69,7 +83,6 @@
         <div class="modal-info" id="modal-info"></div>
       </div>
     </div>
-
     <!-- External Libraries -->
     <script src="https://unpkg.com/pdf-lib@1.17.1/dist/pdf-lib.min.js"></script>
     <script src="https://unpkg.com/browser-image-compression@2.0.2/dist/browser-image-compression.js"></script>

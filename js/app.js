@@ -38,6 +38,28 @@ class ImageToPdfApp {
     document.getElementById('file-input').addEventListener('change', (e) => {
       this.handleFilesDrop(e.target.files);
     });
+
+    // 缩放控制按钮
+    document.getElementById('zoom-in').addEventListener('click', () => {
+      this.modal.zoomIn();
+      this.updateZoomLevel();
+    });
+
+    document.getElementById('zoom-out').addEventListener('click', () => {
+      this.modal.zoomOut();
+      this.updateZoomLevel();
+    });
+
+    document.getElementById('zoom-reset').addEventListener('click', () => {
+      this.modal.resetZoom();
+      this.updateZoomLevel();
+    });
+  }
+
+  updateZoomLevel() {
+    const zoomLevel = document.getElementById('zoom-level');
+    const percentage = Math.round(this.modal.zoom * 100);
+    zoomLevel.textContent = percentage + '%';
   }
 
   async handleFilesDrop(files) {
@@ -96,6 +118,7 @@ class ImageToPdfApp {
       this.imageFiles.length,
       this.imageFiles
     );
+    this.updateZoomLevel();
   }
 
   removeImage(index) {
